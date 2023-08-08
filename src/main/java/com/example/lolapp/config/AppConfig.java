@@ -10,7 +10,7 @@ import java.util.Properties;
 
 @Configuration
 public class AppConfig {
-    @Value("${spring.mail.username}")
+    @Value("${spring.mail.host}")
     String mailHost;
     @Value("${spring.mail.port}")
     Integer mailPort;
@@ -27,7 +27,7 @@ public class AppConfig {
         javaMailSender.setUsername(mailUserName);
         javaMailSender.setPassword(mailpass);
         Properties properties = javaMailSender.getJavaMailProperties();
-        properties.put("mail.smptp.starttls.enable", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
         return javaMailSender;
     }
 }

@@ -15,6 +15,7 @@ public class UserService {
     }
 
     public User createUser(User user) {
+        //valid
         User reg = repo.save(user);
         userPublisherService.publishUserRegisteredEvent(reg);
         return reg;
